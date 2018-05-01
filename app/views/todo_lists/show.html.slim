@@ -1,0 +1,26 @@
+.row
+  .col-sm-8.col-sm-offset-2
+    .panel.panel-default
+      .panel-heading
+        h2 To Do List #{@todo_list.title}
+      .panel-body
+        table.table.table-hover
+          thead
+            tr
+              th Title
+              th Desc
+              th Deadline
+              th Operation
+
+          tbody
+            - @todo_list.to_dos.each do |todo|
+              tr
+                td
+                  = todo.title
+                td
+                  = todo.desc
+                td
+                  = todo.deadline
+                td operations
+
+        = render "form"

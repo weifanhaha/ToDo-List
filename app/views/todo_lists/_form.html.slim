@@ -1,0 +1,10 @@
+= form_for([@todo_list, @todo_list.to_dos.build]) do |f|
+  .form-group
+    = f.label :title ,'Title'
+    = f.text_field :title, class: 'form-control', placeholder:"What are you going to do?"
+
+  .form-group
+    = f.label :desc, 'Description'
+    = f.text_area :desc, class: 'form-control', placeholder:"Something magic is happening..."
+  = f.submit 'Save', class: 'btn btn--primary'
+end

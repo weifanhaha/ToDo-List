@@ -1,0 +1,30 @@
+h2 To Do List Index
+.row
+  .col-sm-8.col-sm-offset-2
+    - @todo_lists.each do |todo_list|
+      .panel.panel-default
+        .panel-heading
+          = link_to(todo_list) do
+            h3.todo-list-title
+              = todo_list.title
+            p.todo-list-desc
+              = todo_list.desc
+        .panel-body
+          table.table.table-hover
+            thead
+              tr
+                th.col-md-4 Title
+                th.col-md-4 Desc
+                th.col-md-4 Deadline
+                th.col-md-4 Operation
+
+            tbody
+              - todo_list.to_dos.each do |todo|
+                tr
+                  td
+                    = todo.title
+                  td
+                    = todo.desc
+                  td
+                    = todo.deadline
+                  td operations

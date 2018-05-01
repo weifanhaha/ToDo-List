@@ -1,5 +1,11 @@
-h1 index
-
-- @to_dos.each do |todo|
-  h3
-    = todo.title
+.row
+  .col-sm-8.col-sm-offset-2
+    .panel.panel-default
+      .panel-heading
+        h2 To Do Index
+      .panel-body
+        .to-do-wrapper
+          - @to_dos.each do |todo|
+            .todos
+              h5
+                = todo.title

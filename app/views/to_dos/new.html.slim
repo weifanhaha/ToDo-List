@@ -4,7 +4,7 @@
       .panel-heading
         h4 New Things To Do
       .panel-body
-        = form_for @to_do, url: to_dos_path do |f|
+        = form_for @to_do, url: todo_list_to_dos_path do |f|
           = render partial: "form", locals: {f: f}
           = f.submit 'Save', class: 'btn btn--primary'
 
