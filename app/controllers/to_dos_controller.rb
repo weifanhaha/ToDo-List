@@ -13,10 +13,10 @@ class ToDosController < ApplicationController
   end
 
   def create
-    @to_do = Blog.new to_do_params
+    @to_do = ToDo.new to_do_params
     @to_do.save!
     flash[:success] = "Added Successfully：#{@to_do.title}"
-    redirect_to @to_do
+    redirect_to root_path
   rescue StandardError => e
     flash[:error] = "Error：#{e}"
     redirect_back fallback_location: new_to_do_path
