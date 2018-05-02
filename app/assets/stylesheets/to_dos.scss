@@ -7,6 +7,8 @@ $white: #fff;
 $light: rgba(256, 256, 256, 0.9);
 $dark: #0a1744;
 
+
+// for forms
 .todo-form{
   .form-lable{
     // text-align: center;
@@ -21,7 +23,12 @@ $dark: #0a1744;
     background-color: $light;
   }
 }
+.form-group.deadline .form-lable{
+  margin-right: 20px;
+}
 
+
+// for links and btns
 .btn-link{
   margin-top: 20px;
   padding: 6px 12px;

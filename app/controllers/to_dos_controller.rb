@@ -1,6 +1,6 @@
 class ToDosController < ApplicationController
-  before_action :find_to_do, only: [:show, :destroy, :check]
-  before_action :set_todo_list, only: [:create, :destroy, :check]
+  before_action :find_to_do, only: [:edit, :update, :destroy, :check]
+  before_action :set_todo_list, only: [:create, :edit, :update, :destroy, :check]
 
   # def index
   #   @to_dos = ToDo.all
@@ -24,17 +24,17 @@ class ToDosController < ApplicationController
     redirect_back fallback_location: new_todo_list_to_do_path
   end
 
-  # def edit
-  # end
+  def edit
+  end
 
-  # def update
-  #   @to_do.update_attributes!(to_do_params)
-  #   flash[:success] = "Updated Successfully：#{@to_do.title}"
-  #   redirect_to @to_do
-  # rescue StandardError => e
-  #   flash[:error] = "Error：#{e}"
-  #   redirect_back fallback_location: edit_todo_list_to_do_path
-  # end
+  def update
+    @to_do.update_attributes!(to_do_params)
+    flash[:success] = "Updated Successfully：#{@to_do.title}"
+    redirect_to @todo_list
+  rescue StandardError => e
+    flash[:error] = "Error：#{e}"
+    redirect_back fallback_location: edit_todo_list_to_do_path
+  end
 
   def check
     if @to_do.isdone?

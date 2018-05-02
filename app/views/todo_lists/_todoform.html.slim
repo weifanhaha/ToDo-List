@@ -4,7 +4,7 @@
     = f.text_field :title, class: 'form-control', placeholder:"Add To List"
     = f.submit 'Add', class: 'btn-link'
 
-  / .form-group
-  /   = f.label :desc, 'Description'
-  /   = f.text_area :desc, class: 'form-control', placeholder:"Something magic is happening..."
+  .form-group.todo-form
+    /= f.label :deadline, 'Deadline', class: 'form-lable'
+    = f.date_select(:deadline, :order => [:month, :day, :year])
 end

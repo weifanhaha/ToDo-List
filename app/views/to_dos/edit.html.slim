@@ -1,0 +1,11 @@
+.row
+  .col-sm-8.col-sm-offset-2
+    .panel.panel-default
+      .panel-heading
+        h4 Edit Things To Do
+      .panel-body
+        = form_for [@todo_list, @to_do] do |f|
+          = render partial: "form", locals: {f: f}
+          = f.submit 'Save', class: 'btn btn-primary'
+          = link_to "Back", @todo_list, class: "btn btn-default"
+

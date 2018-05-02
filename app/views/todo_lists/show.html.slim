@@ -40,36 +40,3 @@
       = link_to "Edit", edit_todo_list_path, class: "link todo-link"
       = link_to "Delete", todo_list_path, method: :delete, data: { confirm: "Are you sure?" },
       class: "link todo-link"
-
-
-
-/.row
-  .col-sm-8.col-sm-offset-2
-    .panel.panel-default
-      .panel-heading
-        h2 To Do List #{@todo_list.title}
-      .panel-body
-        table.table.table-hover
-          thead
-            tr
-              th Title
-              /th Desc
-              th Deadline
-              th Operation
-
-          tbody
-            - @todo_list.to_dos.each do |todo|
-              tr
-                td
-                  = todo.title
-                /td
-                  = todo.desc
-                td
-                  = todo.deadline
-                td operations
-
-        = render "todoform"
-        = link_to "Back", todo_lists_path, class: "btn btn-primary"
-        = link_to "Edit", edit_todo_list_path, class: "btn btn-default"
-        = link_to "Delete", todo_list_path, method: :delete, data: { confirm: "Are you sure?" },
-        class: "btn btn-default"
