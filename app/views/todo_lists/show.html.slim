@@ -1,5 +1,50 @@
 .row
   .col-sm-8.col-sm-offset-2
+    / h1.title To Do List #{@todo_list.title}
+    / p #{@todo_list.desc}
+    .list-wrapper
+      .list-block style="border: none;"
+        h3.todo-list-title
+          = @todo_list.title
+        p.todo-list-desc
+          = @todo_list.desc
+
+      table.table.todos
+        thead
+          tr
+              th Check
+              th Title
+              /th Desc
+              th Deadline
+              th Operations
+        tbody
+          - @todo_list.to_dos.each do |todo|
+            tr class="#{todo_block_done(todo.isdone?)}"
+              td
+                = link_to check_todo_list_to_do_path(@todo_list, todo) do
+                  i.fa.fa-check
+              td
+                = todo.title
+              /td
+                = todo.desc
+              td
+                = todo.deadline
+              td
+                = link_to edit_todo_list_to_do_path(@todo_list, todo) do
+                  .fa.fa-pencil aria-hidden="true"
+                = link_to todo_list_to_do_path(@todo_list, todo), method: :delete, data: { confirm: "Are you sure?" } do
+                  i.fa.fa-trash-o aria-hidden="true"
+
+      = render "todoform"
+      = link_to "Back", todo_lists_path, class: "link todo-link"
+      = link_to "Edit", edit_todo_list_path, class: "link todo-link"
+      = link_to "Delete", todo_list_path, method: :delete, data: { confirm: "Are you sure?" },
+      class: "link todo-link"
+
+
+
+/.row
+  .col-sm-8.col-sm-offset-2
     .panel.panel-default
       .panel-heading
         h2 To Do List #{@todo_list.title}
@@ -8,7 +53,7 @@
           thead
             tr
               th Title
-              th Desc
+              /th Desc
               th Deadline
               th Operation
 
@@ -17,10 +62,14 @@
               tr
                 td
                   = todo.title
-                td
+                /td
                   = todo.desc
                 td
                   = todo.deadline
                 td operations
 
-        = render "form"
+        = render "todoform"
+        = link_to "Back", todo_lists_path, class: "btn btn-primary"
+        = link_to "Edit", edit_todo_list_path, class: "btn btn-default"
+        = link_to "Delete", todo_list_path, method: :delete, data: { confirm: "Are you sure?" },
+        class: "btn btn-default"

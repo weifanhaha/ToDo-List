@@ -1,0 +1,10 @@
+.row
+  .col-sm-8.col-sm-offset-2
+    .panel.panel-default
+      .panel-heading
+        h4 New To Do List
+      .panel-body
+        = form_for @todo_list, url: todo_lists_path do |f|
+          = render partial: "form", locals: {f: f}
+          = f.submit 'Save', class: 'btn btn-primary'
+          = link_to "Back", todo_lists_path, class: "btn btn-default"
